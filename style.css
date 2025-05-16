@@ -198,8 +198,14 @@ button:hover {
     }
     .game-info {
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 10px !important;
         border-bottom: none !important;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
     #tetris {
         width: 300px !important;
@@ -210,28 +216,27 @@ button:hover {
         min-height: 300px !important;
         margin: 0 auto !important;
         display: block;
-        border: 2px solid red !important; /* Borda vermelha temporária para depuração */
         box-sizing: border-box !important;
     }
     .next-piece {
-        margin-bottom: 0;
+        margin: 0;
         flex: 0 0 auto;
-        width: 100%;
+        width: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .next-piece canvas {
-        min-width: 90px;
+        min-width: 120px;
         min-height: 90px;
-        max-width: 90px;
+        max-width: 120px;
         max-height: 90px;
-        width: 90px;
+        width: 120px;
         height: 90px;
-        margin-bottom: 4px;
+        margin: 0;
     }
     .score-container, .high-scores {
-        width: 100%;
+        width: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
