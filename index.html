@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <h1>Tetris World</h1>
+        <div class="game-container">
+            <div class="game-info">
+                <div class="next-piece">
+                    <h3>Próxima Peça</h3>
+                    <canvas id="nextPiece"></canvas>
+                </div>
+                <div class="score-container">
+                    <div class="score">Pontuação: <span id="score">0</span></div>
+                    <div class="level">Nível: <span id="level">1</span></div>
+                </div>
+                <div class="high-scores">
+                    <h3>Recordes</h3>
+                    <div id="highScoresList"></div>
+                </div>
+            </div>
+            <canvas id="tetris"></canvas>
+        </div>
+        <div class="controls">
+            <button id="startBtn">Iniciar</button>
+            <button id="pauseBtn">Pausar</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen" class="hidden">
+        <div class="game-over-content">
+            <h2>GAME OVER</h2>
+            <div id="finalScore"></div>
+            <div id="newHighScore" class="hidden">
+                <h3>Novo Recorde!</h3>
+                <input type="text" id="playerName" placeholder="Digite seu nome" maxlength="15">
+                <button onclick="saveHighScore()">Salvar</button>
+            </div>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <div id="pause-screen" class="hidden">
+        <div class="pause-content">
+            <h2>PAUSA</h2>
+            <button onclick="resumeGame()">Continuar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
