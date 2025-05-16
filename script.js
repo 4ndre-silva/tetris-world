@@ -407,6 +407,7 @@ let touchStartY = 0;
 let touchMoved = false;
 
 canvas.addEventListener('touchstart', function(e) {
+    console.log('toque!');
     e.preventDefault();
     const touch = e.touches[0];
     touchStartX = touch.clientX;
@@ -415,6 +416,7 @@ canvas.addEventListener('touchstart', function(e) {
 }, { passive: false });
 
 canvas.addEventListener('touchmove', function(e) {
+    console.log('toque!');
     e.preventDefault();
     const touch = e.touches[0];
     const dx = touch.clientX - touchStartX;
@@ -433,6 +435,7 @@ canvas.addEventListener('touchmove', function(e) {
 }, { passive: false });
 
 canvas.addEventListener('touchend', function(e) {
+    console.log('toque!');
     e.preventDefault();
     if (!touchMoved) {
         currentPiece.rotate();
