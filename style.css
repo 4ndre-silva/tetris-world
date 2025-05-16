@@ -196,10 +196,14 @@ button:hover {
         align-items: center;
     }
     #tetris {
-        width: 320px !important;
-        max-width: 320px !important;
-        height: 420px !important;
-        max-height: 420px !important;
+        width: 300px !important;
+        max-width: 300px !important;
+        height: 400px !important;
+        max-height: 400px !important;
+        min-width: 200px !important;
+        min-height: 300px !important;
+        margin: 0 auto !important;
+        display: block;
     }
     .game-info {
         display: flex;
@@ -207,10 +211,11 @@ button:hover {
         align-items: center;
         gap: 8px;
         padding: 8px 0 8px 0;
-        width: 100%;
-        max-width: 320px;
-        min-width: 220px;
+        width: 300px !important;
+        max-width: 300px !important;
+        min-width: 200px !important;
         box-sizing: border-box;
+        margin: 0 auto !important;
     }
     .next-piece {
         margin-bottom: 0;
