@@ -194,22 +194,22 @@ button:hover {
     .game-info {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 6px;
+        padding: 4px;
     }
     .next-piece {
         margin-bottom: 0;
         flex: 0 0 auto;
     }
     .next-piece canvas {
-        min-width: 40px;
-        min-height: 40px;
-        max-width: 60px;
-        max-height: 60px;
-        width: 60px;
-        height: 60px;
+        min-width: 28px;
+        min-height: 28px;
+        max-width: 36px;
+        max-height: 36px;
+        width: 32px;
+        height: 32px;
     }
     .score-container {
         flex: 1 1 auto;
@@ -217,11 +217,19 @@ button:hover {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        margin: 0 0 0 10px;
-        font-size: 0.95rem;
+        margin: 0 0 0 6px;
+        font-size: 0.85rem;
+        gap: 2px;
+    }
+    .score, .level {
+        margin: 0;
     }
     .high-scores {
-        margin-top: 10px;
+        margin-top: 6px;
+    }
+    h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
     }
 }
 
