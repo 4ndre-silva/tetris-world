@@ -337,24 +337,18 @@ function updateHighScoresList() {
 }
 
 function startGame() {
-    if (gameStarted) return;
-    
     board = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
     score = 0;
     level = 1;
     gameOver = false;
     isPaused = false;
     gameStarted = true;
-    
     scoreElement.textContent = score;
-    levelElement.textContent = level;
-    
+    if (levelElement) levelElement.textContent = level;
     currentPiece = createNewPiece();
     nextPiece = createNewPiece();
-    
     updateGameSpeed();
     updateHighScoresList();
-    
     startBtn.textContent = "Reiniciar";
 }
 
@@ -405,22 +399,25 @@ document.addEventListener("keydown", (event) => {
 let touchStartX = 0;
 let touchStartY = 0;
 let touchMoved = false;
+let lastTouchTime = 0;
 
 canvas.addEventListener('touchstart', function(e) {
-    console.log('toque!');
     e.preventDefault();
     const touch = e.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
     touchMoved = false;
+    lastTouchTime = Date.now();
 }, { passive: false });
 
 canvas.addEventListener('touchmove', function(e) {
-    console.log('toque!');
     e.preventDefault();
+    if (!gameStarted || isPaused || gameOver) return;
+    
     const touch = e.touches[0];
     const dx = touch.clientX - touchStartX;
     const dy = touch.clientY - touchStartY;
+    
     if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
         if (dx > 0) currentPiece.moveRight();
         else currentPiece.moveLeft();
@@ -435,16 +432,25 @@ canvas.addEventListener('touchmove', function(e) {
 }, { passive: false });
 
 canvas.addEventListener('touchend', function(e) {
-    console.log('toque!');
     e.preventDefault();
-    if (!touchMoved) {
+    if (!gameStarted || isPaused || gameOver) return;
+    
+    const currentTime = Date.now();
+    if (!touchMoved && (currentTime - lastTouchTime) < 300) {
         currentPiece.rotate();
         draw();
     }
 }, { passive: false });
 
 // Event listeners para botões
-startBtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", function() {
+    // Sempre reinicia o jogo ao clicar
+    if (!gameOverScreen.classList.contains("hidden")) {
+        gameOverScreen.classList.add("hidden");
+    }
+    startGame();
+});
+
 pauseBtn.addEventListener("click", togglePause);
 
 // Inicialização
