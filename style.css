@@ -201,23 +201,53 @@ button:hover {
         padding: 14px 8px 14px 8px !important;
         border-bottom: none !important;
         width: 98vw;
-        max-width: 320px;
+        max-width: 340px;
         min-width: 200px;
         display: flex;
         flex-direction: row;
         align-items: stretch;
-        justify-content: center;
+        justify-content: space-between;
         gap: 10px;
         box-sizing: border-box;
         background: rgba(255,255,255,0.04);
     }
     .next-piece {
-        flex: 0 0 70px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-bottom: 0;
+    }
+    .high-scores {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        margin: 0 10px;
+        flex: 1 1 0;
+    }
+    .score-container {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+        margin: 0;
+    }
+    .score-label {
+        color: var(--secondary-color);
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .score-value {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 0;
+        text-align: center;
     }
     .next-piece canvas {
         min-width: 60px;
@@ -230,29 +260,17 @@ button:hover {
         border: 2px solid #00b8ff;
         background: rgba(0,0,0,0.4);
     }
-    .high-scores {
-        flex: 1 1 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 2px;
-        margin: 0 0 0 10px;
-    }
     .high-scores h3 {
         color: var(--accent-color);
         font-size: 1.1rem;
         margin-bottom: 0;
         font-weight: bold;
-        text-align: left;
+        text-align: center;
     }
     #highScoresList {
         color: var(--primary-color);
         font-size: 1.1rem;
-        text-align: left;
-    }
-    .score-container {
-        display: none !important;
+        text-align: center;
     }
     #tetris {
         width: 220px !important;
