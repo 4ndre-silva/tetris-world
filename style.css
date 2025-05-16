@@ -61,6 +61,13 @@ h1 {
 }
 
 .next-piece canvas {
+    min-width: 80px;
+    min-height: 80px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
