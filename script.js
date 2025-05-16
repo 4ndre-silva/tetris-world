@@ -280,18 +280,17 @@ function showDefeatMessage() {
 function showGameOver() {
     const finalScore = document.getElementById("finalScore");
     finalScore.textContent = `Pontuação Final: ${score}`;
-    
     const newHighScore = document.getElementById("newHighScore");
     const highScores = getHighScores();
-    
     if (highScores.length < 3 || score > highScores[highScores.length - 1].score) {
         newHighScore.classList.remove("hidden");
     } else {
         newHighScore.classList.add("hidden");
     }
-    
     showDefeatMessage();
     gameOverScreen.classList.remove("hidden");
+    gameStarted = false;
+    startBtn.textContent = "Iniciar";
 }
 
 function getHighScores() {
