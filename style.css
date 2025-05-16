@@ -194,6 +194,12 @@ button:hover {
     .game-container {
         flex-direction: column;
         align-items: center;
+        gap: 0 !important;
+    }
+    .game-info {
+        margin: 0 !important;
+        padding: 0 !important;
+        border-bottom: none !important;
     }
     #tetris {
         width: 300px !important;
@@ -204,18 +210,8 @@ button:hover {
         min-height: 300px !important;
         margin: 0 auto !important;
         display: block;
-    }
-    .game-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 0 8px 0;
-        width: 300px !important;
-        max-width: 300px !important;
-        min-width: 200px !important;
-        box-sizing: border-box;
-        margin: 0 auto !important;
+        border: 2px solid red !important; /* Borda vermelha temporária para depuração */
+        box-sizing: border-box !important;
     }
     .next-piece {
         margin-bottom: 0;
