@@ -198,8 +198,8 @@ button:hover {
     #tetris {
         width: 220px !important;
         max-width: 220px !important;
-        height: 440px !important;
-        max-height: 440px !important;
+        height: 320px !important;
+        max-height: 320px !important;
     }
     .game-info {
         display: flex;
@@ -216,12 +216,12 @@ button:hover {
         flex: 0 0 auto;
     }
     .next-piece canvas {
-        min-width: 48px;
-        min-height: 48px;
-        max-width: 64px;
-        max-height: 64px;
-        width: 60px;
-        height: 60px;
+        min-width: 80px;
+        min-height: 80px;
+        max-width: 80px;
+        max-height: 80px;
+        width: 80px;
+        height: 80px;
     }
     .score-container {
         flex: 1 1 auto;
