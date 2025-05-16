@@ -196,52 +196,84 @@ button:hover {
         align-items: center;
     }
     #tetris {
-        width: 220px !important;
-        max-width: 220px !important;
-        height: 320px !important;
-        max-height: 320px !important;
+        width: 260px !important;
+        max-width: 260px !important;
+        height: 340px !important;
+        max-height: 340px !important;
     }
     .game-info {
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        flex-direction: column;
         align-items: center;
-        gap: 6px;
-        padding: 4px;
+        gap: 8px;
+        padding: 8px 0 8px 0;
         width: 100%;
-        max-width: 220px;
+        max-width: 260px;
+        min-width: 200px;
+        box-sizing: border-box;
     }
     .next-piece {
         margin-bottom: 0;
         flex: 0 0 auto;
-    }
-    .next-piece canvas {
-        min-width: 80px;
-        min-height: 80px;
-        max-width: 80px;
-        max-height: 80px;
-        width: 80px;
-        height: 80px;
-    }
-    .score-container {
-        flex: 1 1 auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+    }
+    .next-piece canvas {
+        min-width: 90px;
+        min-height: 90px;
+        max-width: 90px;
+        max-height: 90px;
+        width: 90px;
+        height: 90px;
+        margin-bottom: 4px;
+    }
+    .score-container, .high-scores {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
-        margin: 0 0 0 6px;
-        font-size: 0.85rem;
+        margin: 0;
+        font-size: 1rem;
         gap: 2px;
+    }
+    .high-scores h3, .score-label, .level-label {
+        font-size: 1.1rem;
+        margin: 0;
+        font-weight: bold;
+        color: var(--accent-color);
+        letter-spacing: 1px;
+    }
+    .score-label, .level-label {
+        color: var(--secondary-color);
+    }
+    .score-value, .level-value {
+        color: var(--secondary-color);
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .recorde-nome {
+        color: var(--accent-color);
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .recorde-pontos {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        font-weight: bold;
     }
     .score, .level {
         margin: 0;
     }
     .high-scores {
-        margin-top: 6px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     h3 {
-        font-size: 1rem;
-        margin-bottom: 4px;
+        font-size: 1.1rem;
+        margin-bottom: 2px;
     }
 }
 
