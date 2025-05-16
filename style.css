@@ -191,6 +191,16 @@ button:hover {
 }
 
 @media (max-width: 500px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    #tetris {
+        width: 220px !important;
+        max-width: 220px !important;
+        height: 440px !important;
+        max-height: 440px !important;
+    }
     .game-info {
         display: flex;
         flex-direction: row;
@@ -198,18 +208,20 @@ button:hover {
         align-items: center;
         gap: 6px;
         padding: 4px;
+        width: 100%;
+        max-width: 220px;
     }
     .next-piece {
         margin-bottom: 0;
         flex: 0 0 auto;
     }
     .next-piece canvas {
-        min-width: 28px;
-        min-height: 28px;
-        max-width: 36px;
-        max-height: 36px;
-        width: 32px;
-        height: 32px;
+        min-width: 48px;
+        min-height: 48px;
+        max-width: 64px;
+        max-height: 64px;
+        width: 60px;
+        height: 60px;
     }
     .score-container {
         flex: 1 1 auto;
