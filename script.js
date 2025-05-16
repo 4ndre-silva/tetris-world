@@ -391,13 +391,15 @@ let touchStartY = 0;
 let touchMoved = false;
 
 canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault();
     const touch = e.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
     touchMoved = false;
-});
+}, { passive: false });
 
 canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
     const touch = e.touches[0];
     const dx = touch.clientX - touchStartX;
     const dy = touch.clientY - touchStartY;
@@ -412,14 +414,15 @@ canvas.addEventListener('touchmove', function(e) {
         touchStartY = touch.clientY;
     }
     draw();
-});
+}, { passive: false });
 
 canvas.addEventListener('touchend', function(e) {
+    e.preventDefault();
     if (!touchMoved) {
         currentPiece.rotate();
         draw();
     }
-});
+}, { passive: false });
 
 // Event listeners para botões
 startBtn.addEventListener("click", startGame);
