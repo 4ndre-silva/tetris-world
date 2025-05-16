@@ -196,10 +196,10 @@ button:hover {
         align-items: center;
     }
     #tetris {
-        width: 260px !important;
-        max-width: 260px !important;
-        height: 340px !important;
-        max-height: 340px !important;
+        width: 320px !important;
+        max-width: 320px !important;
+        height: 420px !important;
+        max-height: 420px !important;
     }
     .game-info {
         display: flex;
@@ -208,8 +208,8 @@ button:hover {
         gap: 8px;
         padding: 8px 0 8px 0;
         width: 100%;
-        max-width: 260px;
-        min-width: 200px;
+        max-width: 320px;
+        min-width: 220px;
         box-sizing: border-box;
     }
     .next-piece {
