@@ -206,7 +206,10 @@ function drawBoard() {
 function drawNextPiece() {
     nextCtx.clearRect(0, 0, nextPieceCanvas.width, nextPieceCanvas.height);
     if (nextPiece) {
-        nextPiece.draw(nextCtx, 0, 0);
+        // Centraliza a peça no canvas
+        const offsetX = Math.floor((4 - nextPiece.shape[0].length) / 2);
+        const offsetY = Math.floor((4 - nextPiece.shape.length) / 2);
+        nextPiece.draw(nextCtx, offsetX, offsetY);
     }
 }
 
@@ -382,36 +385,40 @@ document.addEventListener("keydown", (event) => {
     draw();
 });
 
-// Controles touch para dispositivos móveis
+// Adiciona variáveis para controle de toque
 let touchStartX = 0;
 let touchStartY = 0;
+let touchMoved = false;
 
-canvas.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
+canvas.addEventListener('touchstart', function(e) {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    touchMoved = false;
 });
 
-canvas.addEventListener("touchmove", (e) => {
-    if (!gameStarted || isPaused || gameOver) return;
-    
-    const touchX = e.touches[0].clientX;
-    const touchY = e.touches[0].clientY;
-    
-    const diffX = touchX - touchStartX;
-    const diffY = touchY - touchStartY;
-    
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX > 30) currentPiece.moveRight();
-        else if (diffX < -30) currentPiece.moveLeft();
-    } else {
-        if (diffY > 30) currentPiece.moveDown();
-        else if (diffY < -30) currentPiece.rotate();
+canvas.addEventListener('touchmove', function(e) {
+    const touch = e.touches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+    if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 0) currentPiece.moveRight();
+        else currentPiece.moveLeft();
+        touchMoved = true;
+        touchStartX = touch.clientX;
+    } else if (Math.abs(dy) > 30 && Math.abs(dy) > Math.abs(dx)) {
+        if (dy > 0) currentPiece.moveDown();
+        touchMoved = true;
+        touchStartY = touch.clientY;
     }
-    
-    touchStartX = touchX;
-    touchStartY = touchY;
-    
     draw();
+});
+
+canvas.addEventListener('touchend', function(e) {
+    if (!touchMoved) {
+        currentPiece.rotate();
+        draw();
+    }
 });
 
 // Event listeners para botões
