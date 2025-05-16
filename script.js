@@ -206,10 +206,15 @@ function drawBoard() {
 function drawNextPiece() {
     nextCtx.clearRect(0, 0, nextPieceCanvas.width, nextPieceCanvas.height);
     if (nextPiece) {
+        // Calcula o tamanho real da peça
+        const shape = nextPiece.shape;
+        const pieceWidth = shape[0].length;
+        const pieceHeight = shape.length;
         // Centraliza a peça no canvas
-        const offsetX = Math.floor((4 - nextPiece.shape[0].length) / 2);
-        const offsetY = Math.floor((4 - nextPiece.shape.length) / 2);
-        nextPiece.draw(nextCtx, offsetX, offsetY);
+        const offsetX = ((nextPieceCanvas.width / BLOCK_SIZE) - pieceWidth) / 2;
+        const offsetY = ((nextPieceCanvas.height / BLOCK_SIZE) - pieceHeight) / 2;
+        // Desenha a peça no canvas de próxima peça
+        nextPiece.draw(nextCtx, offsetX - nextPiece.x, offsetY - nextPiece.y);
     }
 }
 
@@ -315,9 +320,20 @@ function saveHighScore() {
 
 function updateHighScoresList() {
     const scores = getHighScores();
-    highScoresList.innerHTML = scores.map((score, index) => 
-        `<div>${index + 1}º ${score.name}: ${score.score}</div>`
-    ).join("");
+    // Detecta se está no mobile
+    const isMobile = window.innerWidth <= 500;
+    if (isMobile) {
+        if (scores.length > 0) {
+            const top = scores[0];
+            highScoresList.innerHTML = `<div class='recorde-nome'>${top.name}</div><div class='recorde-pontos'>${top.score}</div>`;
+        } else {
+            highScoresList.innerHTML = `<div class='recorde-nome'>---</div><div class='recorde-pontos'>0</div>`;
+        }
+    } else {
+        highScoresList.innerHTML = scores.map((score, index) => 
+            `<div>${index + 1}º ${score.name}: ${score.score}</div>`
+        ).join("");
+    }
 }
 
 function startGame() {
