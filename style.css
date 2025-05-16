@@ -204,15 +204,15 @@ button:hover {
         max-width: 320px;
         min-width: 200px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 14px;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        gap: 10px;
         box-sizing: border-box;
         background: rgba(255,255,255,0.04);
     }
     .next-piece {
-        width: 100%;
+        flex: 0 0 70px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -220,58 +220,39 @@ button:hover {
         margin-bottom: 0;
     }
     .next-piece canvas {
-        min-width: 70px;
-        min-height: 70px;
-        max-width: 70px;
-        max-height: 70px;
-        width: 70px;
-        height: 70px;
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 60px;
+        max-height: 60px;
+        width: 60px;
+        height: 60px;
         margin: 0 auto 2px auto;
         border: 2px solid #00b8ff;
         background: rgba(0,0,0,0.4);
     }
-    .score-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2px;
-        margin: 0;
-        font-size: 1.1rem;
-    }
-    .score-label {
-        color: var(--secondary-color);
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 0;
-    }
-    .score-value {
-        color: var(--primary-color);
-        font-size: 1.3rem;
-        font-weight: bold;
-        margin-bottom: 0;
-    }
     .high-scores {
-        width: 100%;
+        flex: 1 1 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         gap: 2px;
-        margin: 0;
+        margin: 0 0 0 10px;
     }
     .high-scores h3 {
         color: var(--accent-color);
         font-size: 1.1rem;
         margin-bottom: 0;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
     }
     #highScoresList {
         color: var(--primary-color);
-        font-size: 1rem;
-        text-align: center;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    .score-container {
+        display: none !important;
     }
     #tetris {
         width: 220px !important;
