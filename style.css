@@ -197,85 +197,87 @@ button:hover {
         gap: 0 !important;
     }
     .game-info {
-        margin: 0 !important;
-        padding: 10px !important;
+        margin: 0 auto !important;
+        padding: 20px 16px 20px 16px !important;
         border-bottom: none !important;
+        width: 95vw;
+        max-width: 420px;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+        gap: 12px;
+    }
+    .next-piece {
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
-    }
-    #tetris {
-        width: 300px !important;
-        max-width: 300px !important;
-        height: 400px !important;
-        max-height: 400px !important;
-        min-width: 200px !important;
-        min-height: 300px !important;
-        margin: 0 auto !important;
-        display: block;
-        box-sizing: border-box !important;
-    }
-    .next-piece {
-        margin: 0;
-        flex: 0 0 auto;
-        width: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-bottom: 0;
     }
     .next-piece canvas {
-        min-width: 120px;
+        min-width: 110px;
         min-height: 90px;
-        max-width: 120px;
+        max-width: 110px;
         max-height: 90px;
-        width: 120px;
+        width: 110px;
         height: 90px;
         margin: 0;
+        border: 2px solid #00b8ff;
+        background: rgba(0,0,0,0.4);
     }
-    .score-container, .high-scores {
-        width: auto;
+    .high-scores {
+        margin: 0;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        font-size: 1rem;
+        align-items: flex-end;
+        justify-content: flex-start;
         gap: 2px;
     }
-    .high-scores h3, .score-label, .level-label {
-        font-size: 1.1rem;
-        margin: 0;
-        font-weight: bold;
+    .high-scores h3 {
         color: var(--accent-color);
-        letter-spacing: 1px;
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+        font-weight: bold;
+    }
+    #highScoresList {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        text-align: right;
+    }
+    .score-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 24px;
+        margin: 0;
+        font-size: 1.1rem;
     }
     .score-label, .level-label {
         color: var(--secondary-color);
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-right: 4px;
     }
     .score-value, .level-value {
-        color: var(--secondary-color);
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-    .recorde-nome {
-        color: var(--accent-color);
-        font-size: 1rem;
-        font-weight: bold;
-    }
-    .recorde-pontos {
         color: var(--primary-color);
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         font-weight: bold;
+        margin-right: 12px;
     }
-    .score, .level {
-        margin: 0;
+    .score-label, .score-value {
+        margin-bottom: 2px;
     }
-    .high-scores {
-        margin-top: 0;
-        margin-bottom: 0;
+    .level-label, .level-value {
+        margin-bottom: 2px;
     }
     h3 {
         font-size: 1.1rem;
